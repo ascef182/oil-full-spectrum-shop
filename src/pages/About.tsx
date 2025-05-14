@@ -1,9 +1,8 @@
-
 import React from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Award, Leaf, Flask } from 'lucide-react';
+import { CheckCircle, Award, Leaf, Beaker } from 'lucide-react';
 
 const About = () => {
   return (
@@ -80,7 +79,7 @@ const About = () => {
             
             <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <div className="bg-sage w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Flask className="h-8 w-8 text-forest" />
+                <Beaker className="h-8 w-8 text-forest" />
               </div>
               <h3 className="text-xl font-bold text-forest mb-3 text-center">Inovação</h3>
               <p className="text-gray-700 text-center">
