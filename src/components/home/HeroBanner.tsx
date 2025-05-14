@@ -6,13 +6,18 @@ import { Link } from 'react-router-dom';
 const HeroBanner = () => {
   return (
     <div className="relative bg-sage py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/lovable-uploads/2d4cf126-e834-4ab5-a8e7-7d3427af167a.png')] bg-cover bg-center opacity-80"></div>
+      {/* Background image with reduced opacity */}
+      <div className="absolute inset-0 bg-[url('/lovable-uploads/2d4cf126-e834-4ab5-a8e7-7d3427af167a.png')] bg-cover bg-center opacity-50"></div>
+      
+      {/* Dark overlay to improve text contrast */}
+      <div className="absolute inset-0 bg-black/20"></div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-forest fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg fade-in">
             Transformando Vidas com a Força da Natureza
           </h1>
-          <p className="text-lg md:text-xl text-forest font-medium mb-8 slide-up backdrop-blur-sm bg-white/30 p-3 rounded-lg">
+          <p className="text-lg md:text-xl text-white font-medium mb-8 slide-up bg-forest/70 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
             Descubra o poder dos produtos Oil Full Spectrum para seu bem-estar. 
             Extratos naturais de alta qualidade para um equilíbrio completo.
           </p>
@@ -20,7 +25,7 @@ const HeroBanner = () => {
             <Button 
               asChild
               size="lg" 
-              className="bg-forest hover:bg-forest/90 text-white"
+              className="bg-forest hover:bg-forest/90 text-white font-bold"
             >
               <Link to="/produtos">
                 Ver Produtos
@@ -30,7 +35,7 @@ const HeroBanner = () => {
               asChild
               variant="outline" 
               size="lg"
-              className="border-forest text-forest hover:bg-sage"
+              className="border-white bg-white/30 text-white hover:bg-white/40 hover:text-forest backdrop-blur-sm font-bold"
             >
               <Link to="/beneficios">
                 Conhecer Benefícios
