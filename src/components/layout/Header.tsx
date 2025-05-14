@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import CartButton from '../CartButton';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,11 +32,7 @@ const Header = () => {
 
         {/* Cart and Mobile Menu Button */}
         <div className="flex items-center space-x-4">
-          <Link to="/carrinho">
-            <Button variant="ghost" size="icon" className="text-forest hover:bg-sage">
-              <ShoppingCart className="h-5 w-5" />
-            </Button>
-          </Link>
+          <CartButton />
           <button 
             onClick={toggleMenu} 
             className="md:hidden text-forest hover:bg-sage p-2 rounded-md"
@@ -55,6 +52,9 @@ const Header = () => {
             <Link to="/sobre" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Sobre</Link>
             <Link to="/faq" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>FAQ</Link>
             <Link to="/contato" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Contato</Link>
+            <Link to="/carrinho" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>
+              Carrinho <span className="bg-forest text-white text-xs rounded-full px-2 py-1 ml-1">0</span>
+            </Link>
           </div>
         </div>
       )}

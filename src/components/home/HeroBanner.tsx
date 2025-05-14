@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 const HeroBanner = () => {
   return (
     <div className="relative bg-sage py-20 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('/lovable-uploads/2d4cf126-e834-4ab5-a8e7-7d3427af167a.png')] bg-cover bg-center opacity-80"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-forest fade-in">
             Transformando Vidas com a Força da Natureza
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-8 slide-up">
+          <p className="text-lg md:text-xl text-forest font-medium mb-8 slide-up backdrop-blur-sm bg-white/30 p-3 rounded-lg">
             Descubra o poder dos produtos Oil Full Spectrum para seu bem-estar. 
             Extratos naturais de alta qualidade para um equilíbrio completo.
           </p>

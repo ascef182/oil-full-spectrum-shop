@@ -1,83 +1,103 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Link } from 'react-router-dom';
+import { useCart } from "@/context/CartContext";
+import { toast } from "@/components/ui/use-toast";
 
 const products = [
   {
     id: 1,
     name: "Oil Full Spectrum 1500mg",
-    description: "Óleo 100% natural com blend completo de terpenos para máxima eficácia.",
+    description: "Óleo 100% natural com blend completo de terpenos",
     price: "R$ 299,00",
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
-    category: "oil"
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843"
   },
   {
     id: 2,
     name: "Oil Full Spectrum 600mg",
-    description: "Óleo 100% natural com concentração ideal para iniciantes.",
+    description: "Óleo 100% natural com concentração ideal para iniciantes",
     price: "R$ 189,00",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-    category: "oil"
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
   },
   {
     id: 3,
     name: "Gummies Fitoterápicas",
-    description: "Gomas 100% naturais e veganas para uma experiência agradável.",
+    description: "Gomas 100% naturais e veganas para uma experiência agradável",
     price: "R$ 159,00",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b",
-    category: "gummies"
+    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b"
   }
 ];
 
 const FeaturedProducts = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (product: any) => {
+    addToCart(product);
+    toast({
+      title: "Produto adicionado",
+      description: `${product.name} foi adicionado ao carrinho`,
+    });
+  };
+
   return (
-    <section className="section-padding bg-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-forest mb-4">Produtos Destaque</h2>
+          <h2 className="text-3xl font-bold text-forest mb-4">Nossos Produtos Mais Vendidos</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Descubra nossa seleção de produtos premium, elaborados com ingredientes naturais 
-            e processos artesanais para garantir máxima qualidade e eficácia.
+            Produtos premium, artesanais e 100% naturais. Extraídos com as melhores práticas para manter todas as propriedades ativas.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg">
-              <div className="aspect-[4/3] relative overflow-hidden">
+            <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <div className="h-60 overflow-hidden">
                 <img 
                   src={product.image} 
-                  alt={product.name}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  alt={product.name} 
+                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
                 />
-                <div className="absolute top-2 right-2 bg-forest text-white text-xs px-2 py-1 rounded-full">
-                  {product.category === 'oil' ? 'Óleo' : 'Gummies'}
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl text-forest mb-2">{product.name}</h3>
+                <p className="text-gray-600 mb-4">{product.description}</p>
+                <p className="text-forest font-bold text-xl mb-4">{product.price}</p>
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                  <Button 
+                    variant="default" 
+                    className="bg-forest hover:bg-forest/90 flex-1"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Adicionar ao Carrinho
+                  </Button>
+                  <Button 
+                    asChild
+                    variant="outline" 
+                    className="border-forest text-forest hover:bg-sage flex-1"
+                  >
+                    <Link to={`/produtos/${product.id}`}>
+                      Ver Detalhes
+                    </Link>
+                  </Button>
                 </div>
               </div>
-              <CardHeader className="p-4">
-                <h3 className="text-xl font-bold text-forest">{product.name}</h3>
-              </CardHeader>
-              <CardContent className="p-4 pt-0">
-                <p className="text-gray-600 mb-2">{product.description}</p>
-                <p className="text-lg font-bold text-forest">{product.price}</p>
-              </CardContent>
-              <CardFooter className="p-4 pt-0">
-                <Link to={`/produtos/${product.id}`} className="w-full">
-                  <Button className="w-full bg-forest hover:bg-forest/90">Ver Detalhes</Button>
-                </Link>
-              </CardFooter>
-            </Card>
+            </div>
           ))}
         </div>
         
-        <div className="mt-12 text-center">
-          <Link to="/produtos">
-            <Button variant="outline" size="lg" className="border-forest text-forest hover:bg-sage">
-              Ver todos os produtos
-            </Button>
-          </Link>
+        <div className="text-center mt-10">
+          <Button 
+            asChild
+            variant="default" 
+            size="lg"
+            className="bg-forest hover:bg-forest/90"
+          >
+            <Link to="/produtos">
+              Ver Todos os Produtos
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
