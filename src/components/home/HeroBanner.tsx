@@ -2,25 +2,30 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
+const HERO_IMAGE = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'; // Exemplo de imagem de natureza
+
 const HeroBanner = () => {
   return (
-    <div className="relative bg-sage py-20 md:py-32 overflow-hidden">
-      {/* Background image with reduced opacity */}
-      <div className="absolute inset-0 bg-[url('/lovable-uploads/2d4cf126-e834-4ab5-a8e7-7d3427af167a.png')] bg-cover bg-center opacity-50"></div>
-      
-      {/* Dark overlay to improve text contrast */}
-      <div className="absolute inset-0 bg-black/20"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-sage">
+      {/* Background image */}
+      <img 
+        src={HERO_IMAGE}
+        alt="Natureza e bem-estar"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        draggable={false}
+      />
+      {/* Overlay for contrast */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg">
             Transformando Vidas com a Força da Natureza
           </h1>
-          <p className="text-lg md:text-xl text-white font-medium mb-8 animate-slide-up bg-forest/70 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white font-medium mb-8 bg-forest/80 p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
             Descubra o poder dos produtos Oil Full Spectrum para seu bem-estar. 
             Extratos naturais de alta qualidade para um equilíbrio completo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               asChild
               size="lg" 
@@ -34,7 +39,7 @@ const HeroBanner = () => {
               asChild
               variant="outline" 
               size="lg"
-              className="border-white bg-white/30 text-white hover:bg-white/40 hover:text-forest backdrop-blur-sm font-bold"
+              className="border-white bg-white/30 text-white hover:bg-white/40 hover:text-forest font-bold"
             >
               <Link to="/beneficios">
                 Conhecer Benefícios
@@ -43,7 +48,7 @@ const HeroBanner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

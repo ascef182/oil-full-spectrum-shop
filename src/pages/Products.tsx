@@ -298,28 +298,28 @@ const Products = () => {
                       </div>
                     </CardContent>
                     <CardFooter className="p-4 pt-0">
-                      <div className="flex flex-col sm:flex-row gap-2 w-full items-center">
+                      <div className="flex flex-col sm:flex-row gap-1 sm:gap-2 w-full items-center">
                         <div className="flex items-center border border-gray-200 rounded-md mr-2">
                           <button
                             onClick={() => handleQuantityChange(product.id, -1)}
-                            className="px-3 py-1 text-gray-600 hover:bg-gray-100"
+                            className="px-2 py-1 text-gray-600 hover:bg-gray-100 text-sm"
                             aria-label="Diminuir"
                           >
                             -
                           </button>
-                          <span className="px-3 py-1 border-x border-gray-200 min-w-[40px] text-center">
+                          <span className="px-2 py-1 border-x border-gray-200 min-w-[32px] text-center text-sm">
                             {quantities[product.id] || 1}
                           </span>
                           <button
                             onClick={() => handleQuantityChange(product.id, 1)}
-                            className="px-3 py-1 text-gray-600 hover:bg-gray-100"
+                            className="px-2 py-1 text-gray-600 hover:bg-gray-100 text-sm"
                             aria-label="Aumentar"
                           >
                             +
                           </button>
                         </div>
                         <Button
-                          className="flex-1 bg-forest hover:bg-forest/90 text-white"
+                          className="flex-1 bg-forest hover:bg-forest/90 text-white text-sm py-2 px-3 h-10 rounded-md"
                           onClick={() => handleAddToCart(product)}
                         >
                           Adicionar ao Carrinho
@@ -327,7 +327,7 @@ const Products = () => {
                         <Button 
                           asChild
                           variant="outline"
-                          className="flex-1 border-forest text-forest hover:bg-sage"
+                          className="flex-1 border-forest text-forest hover:bg-sage text-sm py-2 px-3 h-10 rounded-md"
                         >
                           <Link to={`/produtos/${product.id}`}>
                             Ver Detalhes
