@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Mail, Phone } from "lucide-react";
@@ -28,9 +27,10 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Navegação</h3>
             <ul className="space-y-2">
               <li><Link to="/" className="text-sm opacity-80 hover:opacity-100">Home</Link></li>
+              <li><Link to="/sobre" className="text-sm opacity-80 hover:opacity-100">Sobre a Marca</Link></li>
               <li><Link to="/produtos" className="text-sm opacity-80 hover:opacity-100">Produtos</Link></li>
               <li><Link to="/beneficios" className="text-sm opacity-80 hover:opacity-100">Benefícios</Link></li>
-              <li><Link to="/sobre" className="text-sm opacity-80 hover:opacity-100">Sobre a Marca</Link></li>
+              <li><Link to="/blog" className="text-sm opacity-80 hover:opacity-100">Blog</Link></li>
               <li><Link to="/faq" className="text-sm opacity-80 hover:opacity-100">Perguntas Frequentes</Link></li>
               <li><Link to="/contato" className="text-sm opacity-80 hover:opacity-100">Contato</Link></li>
             </ul>

@@ -1,33 +1,9 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/components/ui/use-toast";
-
-const products = [
-  {
-    id: 1,
-    name: "Oil Full Spectrum 1500mg",
-    description: "Óleo 100% natural com blend completo de terpenos",
-    price: "R$ 299,00",
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843"
-  },
-  {
-    id: 2,
-    name: "Oil Full Spectrum 600mg",
-    description: "Óleo 100% natural com concentração ideal para iniciantes",
-    price: "R$ 189,00",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-  },
-  {
-    id: 3,
-    name: "Gummies Fitoterápicas",
-    description: "Gomas 100% naturais e veganas para uma experiência agradável",
-    price: "R$ 159,00",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b"
-  }
-];
+import { products } from '../../pages/Products';
 
 const FeaturedProducts = () => {
   const { addToCart } = useCart();
@@ -40,6 +16,9 @@ const FeaturedProducts = () => {
     });
   };
 
+  // Exibir apenas os 3 primeiros produtos como destaque
+  const featured = products.slice(0, 3);
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -49,11 +28,13 @@ const FeaturedProducts = () => {
             Produtos premium, artesanais e 100% naturais. Extraídos com as melhores práticas para manter todas as propriedades ativas.
           </p>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {products.map((product) => (
+          {featured.map((product) => (
             <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <div className="h-60 overflow-hidden">
+              <div className="h-60 overflow-hidden relative">
+                <span className="absolute top-3 left-3 bg-sage text-forest rounded-full px-4 py-1 text-base font-medium shadow-sm" style={{zIndex:2}}>
+                  {product.volume}
+                </span>
                 <img 
                   src={product.image} 
                   alt={product.name} 
@@ -86,7 +67,6 @@ const FeaturedProducts = () => {
             </div>
           ))}
         </div>
-        
         <div className="text-center mt-10">
           <Button 
             asChild

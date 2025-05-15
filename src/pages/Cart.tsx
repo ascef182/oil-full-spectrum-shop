@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import { useCart } from '../context/CartContext';
@@ -159,42 +158,13 @@ const Cart = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <label htmlFor="customerName" className="block text-sm text-gray-700 mb-1">
-                      Seu nome (opcional)
-                    </label>
-                    <input
-                      type="text"
-                      id="customerName"
-                      value={customerName}
-                      onChange={(e) => setCustomerName(e.target.value)}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-forest"
-                      placeholder="Digite seu nome"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="customerAddress" className="block text-sm text-gray-700 mb-1">
-                      Endereço de entrega (opcional)
-                    </label>
-                    <textarea
-                      id="customerAddress"
-                      value={customerAddress}
-                      onChange={(e) => setCustomerAddress(e.target.value)}
-                      rows={3}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-forest"
-                      placeholder="Digite seu endereço de entrega"
-                    ></textarea>
-                  </div>
-                </div>
-                
                 <Button 
                   className="w-full bg-forest hover:bg-forest/90 flex items-center justify-center gap-2 mb-3"
-                  onClick={handleCheckoutViaWhatsApp}
+                  asChild
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  Finalizar Pedido via WhatsApp
+                  <Link to="/checkout">
+                    Finalizar Pedido
+                  </Link>
                 </Button>
                 
                 <Link to="/produtos" className="text-forest text-sm hover:underline block text-center">

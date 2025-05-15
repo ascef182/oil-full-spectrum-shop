@@ -1,55 +1,96 @@
-
 import React, { useState } from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Link } from 'react-router-dom';
 import { CheckCircle, Search, Package } from "lucide-react";
+import { useCart } from '../context/CartContext';
+import BackToHomeButton from '../components/layout/BlogBackButton';
 
-const products = [
+export const products = [
   {
     id: 1,
-    name: "Oil Full Spectrum 1500mg",
-    description: "Óleo 100% natural com blend completo de terpenos para máxima eficácia.",
-    longDescription: "Nosso blend premium de óleo Full Spectrum contém uma concentração potente de 1500mg, ideal para quem busca resultados intensos. Perfeito para dores crônicas, ansiedade e insônia.",
-    price: "R$ 299,00",
+    name: "Óleo Fitoterápico de Amplo Espectro 1500mg 50ml",
+    description: "Óleo 100% natural, vegano, com compostos bioativos naturais. Concentração de 1500mg em 50ml.",
+    longDescription: "Produto 100% natural e vegano, com compostos bioativos extraídos de plantas medicinais. Atua no equilíbrio do corpo, promovendo bem-estar geral, regulação do sono, redução da ansiedade e alívio de dores.",
+    price: "R$ 840,00",
     image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
     category: "oil",
     uses: ["ansiedade", "dor", "insonia"],
-    concentration: "1500mg"
+    concentration: "1500mg",
+    volume: "50ml"
   },
   {
     id: 2,
-    name: "Oil Full Spectrum 600mg",
-    description: "Óleo 100% natural com concentração ideal para iniciantes.",
-    longDescription: "Formulado para quem está começando a explorar os benefícios dos óleos naturais, com 600mg de concentração. Excelente para ansiedade leve e melhora do sono.",
-    price: "R$ 189,00",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    name: "Óleo Fitoterápico de Amplo Espectro 1500mg 30ml",
+    description: "Óleo 100% natural, vegano, com compostos bioativos naturais. Concentração de 1500mg em 30ml.",
+    longDescription: "Produto 100% natural e vegano, com compostos bioativos extraídos de plantas medicinais. Atua no equilíbrio do corpo, promovendo bem-estar geral, regulação do sono, redução da ansiedade e alívio de dores.",
+    price: "R$ 630,00",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
     category: "oil",
-    uses: ["ansiedade", "sono", "estresse"],
-    concentration: "600mg"
+    uses: ["ansiedade", "dor", "insonia"],
+    concentration: "1500mg",
+    volume: "30ml"
   },
   {
     id: 3,
-    name: "Gummies Fitoterápicas",
-    description: "Gomas 100% naturais e veganas para uma experiência agradável.",
-    longDescription: "Deliciosas gomas fitoterápicas veganas com extrato full spectrum e outros compostos benéficos. Perfeitas para o controle de ansiedade e promoção do relaxamento.",
-    price: "R$ 159,00",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b",
-    category: "gummies",
-    uses: ["ansiedade", "relaxamento"],
-    concentration: "300mg"
+    name: "Óleo Fitoterápico de Amplo Espectro 1500mg 20ml",
+    description: "Óleo 100% natural, vegano, com compostos bioativos naturais. Concentração de 1500mg em 20ml.",
+    longDescription: "Produto 100% natural e vegano, com compostos bioativos extraídos de plantas medicinais. Atua no equilíbrio do corpo, promovendo bem-estar geral, regulação do sono, redução da ansiedade e alívio de dores.",
+    price: "R$ 441,00",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
+    category: "oil",
+    uses: ["ansiedade", "dor", "insonia"],
+    concentration: "1500mg",
+    volume: "20ml"
   },
   {
     id: 4,
-    name: "Oil Full Spectrum 1000mg",
-    description: "Concentração balanceada para uso diário e eficácia intermediária.",
-    longDescription: "Este óleo apresenta uma concentração intermediária, ideal para uso diário e para quem já tem experiência com produtos naturais. Excelente para controle de dores e ansiedade.",
-    price: "R$ 249,00",
-    image: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3",
+    name: "Óleo Fitoterápico de Amplo Espectro 600mg 50ml",
+    description: "Óleo 100% natural, vegano, com compostos bioativos naturais. Concentração de 600mg em 50ml.",
+    longDescription: "Produto 100% natural e vegano, com compostos bioativos extraídos de plantas medicinais. Atua no equilíbrio do corpo, promovendo bem-estar geral, regulação do sono, redução da ansiedade e alívio de dores.",
+    price: "R$ 735,00",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
     category: "oil",
-    uses: ["dor", "ansiedade", "inflamação"],
-    concentration: "1000mg"
+    uses: ["ansiedade", "dor", "insonia"],
+    concentration: "600mg",
+    volume: "50ml"
+  },
+  {
+    id: 5,
+    name: "Óleo Fitoterápico de Amplo Espectro 600mg 30ml",
+    description: "Óleo 100% natural, vegano, com compostos bioativos naturais. Concentração de 600mg em 30ml.",
+    longDescription: "Produto 100% natural e vegano, com compostos bioativos extraídos de plantas medicinais. Atua no equilíbrio do corpo, promovendo bem-estar geral, regulação do sono, redução da ansiedade e alívio de dores.",
+    price: "R$ 441,00",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
+    category: "oil",
+    uses: ["ansiedade", "dor", "insonia"],
+    concentration: "600mg",
+    volume: "30ml"
+  },
+  {
+    id: 6,
+    name: "Óleo Fitoterápico de Amplo Espectro 600mg 20ml",
+    description: "Óleo 100% natural, vegano, com compostos bioativos naturais. Concentração de 600mg em 20ml.",
+    longDescription: "Produto 100% natural e vegano, com compostos bioativos extraídos de plantas medicinais. Atua no equilíbrio do corpo, promovendo bem-estar geral, regulação do sono, redução da ansiedade e alívio de dores.",
+    price: "R$ 357,00",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
+    category: "oil",
+    uses: ["ansiedade", "dor", "insonia"],
+    concentration: "600mg",
+    volume: "20ml"
+  },
+  {
+    id: 7,
+    name: "Gummies (Balas Fitoterápicas)",
+    description: "Gomas 100% naturais e veganas para uma experiência agradável. Peso por unidade: 30mg.",
+    longDescription: "Deliciosas gomas fitoterápicas veganas com compostos bioativos naturais. Perfeitas para o controle de ansiedade e promoção do relaxamento.",
+    price: "R$ 262,50",
+    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b",
+    category: "gummies",
+    uses: ["ansiedade", "relaxamento"],
+    concentration: "30mg (por unidade)",
+    volume: null
   }
 ];
 
@@ -66,6 +107,17 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedConcentration, setSelectedConcentration] = useState<string | null>(null);
   const [selectedUse, setSelectedUse] = useState<string | null>(null);
+  const { addMultipleToCart } = useCart();
+  const [quantities, setQuantities] = useState<{ [id: number]: number }>({});
+
+  const handleQuantityChange = (id: number, delta: number) => {
+    setQuantities(q => ({ ...q, [id]: Math.max(1, (q[id] || 1) + delta) }));
+  };
+
+  const handleAddToCart = (product: any) => {
+    const quantity = quantities[product.id] || 1;
+    addMultipleToCart(product, quantity);
+  };
 
   const filteredProducts = products.filter(product => {
     // Search term filter
@@ -88,6 +140,7 @@ const Products = () => {
     <RootLayout>
       <div className="bg-sage py-12">
         <div className="container mx-auto px-4">
+          <BackToHomeButton className="mb-8" />
           <h1 className="text-3xl md:text-4xl font-bold text-forest mb-4">Nossos Produtos</h1>
           <p className="text-gray-700 max-w-2xl">
             Explore nossa linha completa de produtos Oil Full Spectrum e encontre a solução 
@@ -211,6 +264,12 @@ const Products = () => {
                 {filteredProducts.map(product => (
                   <Card key={product.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg h-full flex flex-col">
                     <div className="aspect-[4/3] relative overflow-hidden">
+                      {/* Tag de volume */}
+                      {product.volume && (
+                        <span className="absolute top-3 left-3 bg-sage text-forest rounded-full px-4 py-1 text-base font-medium shadow-sm" style={{zIndex:2}}>
+                          {product.volume}
+                        </span>
+                      )}
                       <img 
                         src={product.image} 
                         alt={product.name}
@@ -221,7 +280,7 @@ const Products = () => {
                       </div>
                     </div>
                     <CardHeader className="p-4">
-                      <h3 className="text-xl font-bold text-forest">{product.name}</h3>
+                      <h3 className="text-xl font-bold text-forest">{product.name.replace(/\s\d+ml$/, '')}</h3>
                       <p className="text-lg font-bold text-forest">{product.price}</p>
                     </CardHeader>
                     <CardContent className="p-4 pt-0 flex-grow">
@@ -239,25 +298,40 @@ const Products = () => {
                       </div>
                     </CardContent>
                     <CardFooter className="p-4 pt-0">
-                      <div className="flex flex-col sm:flex-row gap-2 w-full">
+                      <div className="flex flex-col sm:flex-row gap-2 w-full items-center">
+                        <div className="flex items-center border border-gray-200 rounded-md mr-2">
+                          <button
+                            onClick={() => handleQuantityChange(product.id, -1)}
+                            className="px-3 py-1 text-gray-600 hover:bg-gray-100"
+                            aria-label="Diminuir"
+                          >
+                            -
+                          </button>
+                          <span className="px-3 py-1 border-x border-gray-200 min-w-[40px] text-center">
+                            {quantities[product.id] || 1}
+                          </span>
+                          <button
+                            onClick={() => handleQuantityChange(product.id, 1)}
+                            className="px-3 py-1 text-gray-600 hover:bg-gray-100"
+                            aria-label="Aumentar"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <Button
+                          className="flex-1 bg-forest hover:bg-forest/90 text-white"
+                          onClick={() => handleAddToCart(product)}
+                        >
+                          Adicionar ao Carrinho
+                        </Button>
                         <Button 
-                          className="flex-1 bg-forest hover:bg-forest/90"
                           asChild
+                          variant="outline"
+                          className="flex-1 border-forest text-forest hover:bg-sage"
                         >
                           <Link to={`/produtos/${product.id}`}>
                             Ver Detalhes
                           </Link>
-                        </Button>
-                        <Button 
-                          variant="outline"
-                          className="flex-1 border-forest text-forest hover:bg-sage"
-                          onClick={() => {
-                            // WhatsApp integration
-                            const message = `Olá! Tenho interesse no produto ${product.name}. Poderia me dar mais informações?`;
-                            window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(message)}`, '_blank');
-                          }}
-                        >
-                          Comprar
                         </Button>
                       </div>
                     </CardFooter>

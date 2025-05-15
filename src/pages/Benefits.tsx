@@ -1,14 +1,15 @@
-
 import React from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import BackToHomeButton from '../components/layout/BlogBackButton';
 
 const Benefits = () => {
   return (
     <RootLayout>
       <div className="bg-sage py-12">
         <div className="container mx-auto px-4">
+          <BackToHomeButton className="mb-8" />
           <h1 className="text-3xl md:text-4xl font-bold text-forest mb-4">Benefícios</h1>
           <p className="text-gray-700 max-w-2xl">
             Conheça os benefícios dos produtos Oil Full Spectrum e como eles podem ajudar 

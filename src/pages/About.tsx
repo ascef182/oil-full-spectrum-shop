@@ -3,12 +3,14 @@ import RootLayout from '../components/layout/RootLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Award, Leaf, Beaker } from 'lucide-react';
+import BackToHomeButton from '../components/layout/BlogBackButton';
 
 const About = () => {
   return (
     <RootLayout>
       <div className="bg-sage py-12">
         <div className="container mx-auto px-4">
+          <BackToHomeButton className="mb-8" />
           <h1 className="text-3xl md:text-4xl font-bold text-forest mb-4">Sobre a Marca</h1>
           <p className="text-gray-700 max-w-2xl">
             Conheça nossa história, missão, valores e o compromisso que temos com a natureza e seu bem-estar.

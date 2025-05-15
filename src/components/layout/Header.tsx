@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -23,9 +22,10 @@ const Header = () => {
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link to="/" className="text-gray-700 hover:text-forest font-medium">Home</Link>
+          <Link to="/sobre" className="text-gray-700 hover:text-forest font-medium">Sobre</Link>
           <Link to="/produtos" className="text-gray-700 hover:text-forest font-medium">Produtos</Link>
           <Link to="/beneficios" className="text-gray-700 hover:text-forest font-medium">Benefícios</Link>
-          <Link to="/sobre" className="text-gray-700 hover:text-forest font-medium">Sobre</Link>
+          <Link to="/blog" className="text-gray-700 hover:text-forest font-medium">Blog</Link>
           <Link to="/faq" className="text-gray-700 hover:text-forest font-medium">FAQ</Link>
           <Link to="/contato" className="text-gray-700 hover:text-forest font-medium">Contato</Link>
         </nav>
@@ -47,9 +47,10 @@ const Header = () => {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
             <Link to="/" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Home</Link>
+            <Link to="/sobre" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Sobre</Link>
             <Link to="/produtos" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Produtos</Link>
             <Link to="/beneficios" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Benefícios</Link>
-            <Link to="/sobre" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Sobre</Link>
+            <Link to="/blog" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Blog</Link>
             <Link to="/faq" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>FAQ</Link>
             <Link to="/contato" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>Contato</Link>
             <Link to="/carrinho" className="text-gray-700 hover:text-forest py-2 font-medium" onClick={toggleMenu}>

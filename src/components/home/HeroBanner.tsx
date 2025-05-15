@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
@@ -14,14 +13,14 @@ const HeroBanner = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg animate-fade-in">
             Transformando Vidas com a Força da Natureza
           </h1>
-          <p className="text-lg md:text-xl text-white font-medium mb-8 slide-up bg-forest/70 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white font-medium mb-8 animate-slide-up bg-forest/70 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
             Descubra o poder dos produtos Oil Full Spectrum para seu bem-estar. 
             Extratos naturais de alta qualidade para um equilíbrio completo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center slide-up">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <Button 
               asChild
               size="lg" 

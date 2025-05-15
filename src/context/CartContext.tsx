@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type Product = {
@@ -12,6 +11,7 @@ type Product = {
 type CartContextType = {
   cart: Product[];
   addToCart: (product: Omit<Product, 'quantity'>) => void;
+  addMultipleToCart: (product: Omit<Product, 'quantity'>, quantity: number) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
@@ -55,6 +55,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
   };
 
+  const addMultipleToCart = (product: Omit<Product, 'quantity'>, quantity: number) => {
+    setCart(prevCart => {
+      const existingProduct = prevCart.find(item => item.id === product.id);
+      if (existingProduct) {
+        return prevCart.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+        );
+      }
+      return [...prevCart, { ...product, quantity }];
+    });
+  };
+
   const removeFromCart = (id: number) => {
     setCart(prevCart => prevCart.filter(item => item.id !== id));
   };
@@ -86,6 +98,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       value={{
         cart,
         addToCart,
+        addMultipleToCart,
         removeFromCart,
         updateQuantity,
         clearCart,

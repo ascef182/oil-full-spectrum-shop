@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Instagram, Facebook, Clock, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import BackToHomeButton from '../components/layout/BlogBackButton';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -53,6 +53,7 @@ const Contact = () => {
     <RootLayout>
       <div className="bg-sage py-12">
         <div className="container mx-auto px-4">
+          <BackToHomeButton className="mb-8" />
           <h1 className="text-3xl md:text-4xl font-bold text-forest mb-4">Contato</h1>
           <p className="text-gray-700 max-w-2xl">
             Entre em contato conosco para tirar dúvidas, fazer pedidos ou conhecer mais sobre nossos produtos.

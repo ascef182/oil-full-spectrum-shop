@@ -1,4 +1,3 @@
-
 import React from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import HeroBanner from '../components/home/HeroBanner';
@@ -10,6 +9,7 @@ import Testimonials from '../components/home/Testimonials';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Leaf } from "lucide-react";
+import { posts as blogPosts } from './blog/BlogIndex';
 
 const Index = () => {
   return (
@@ -59,6 +59,28 @@ const Index = () => {
       <HowItWorks />
       <BenefitsOverview />
       <Testimonials />
+      {/* Blog Section */}
+      <div className="bg-sage-50 py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-6 text-forest">Conteúdo do Blog</h2>
+          <div className="grid md:grid-cols-2 gap-8 mb-6">
+            {blogPosts.slice(0,2).map(post => (
+              <div key={post.slug} className="bg-white rounded-lg shadow p-6 flex flex-col justify-between border border-sage-200 hover:shadow-lg transition-shadow">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-forest">{post.title}</h3>
+                  <p className="text-gray-700 mb-4">{post.summary}</p>
+                </div>
+                <Link to={`/blog/${post.slug}`} className="text-green-700 hover:underline font-medium">Ler artigo completo</Link>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button asChild className="bg-forest hover:bg-forest/90 text-white">
+              <Link to="/blog">Ver todos os artigos</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
     </RootLayout>
   );
 };
