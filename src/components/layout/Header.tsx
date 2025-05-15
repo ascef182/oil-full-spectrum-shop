@@ -20,7 +20,7 @@ const Header = () => {
         </Link>
 
         {/* Navigation - Desktop */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex !hidden md:!flex items-center space-x-8">
           <Link to="/" className="text-gray-700 hover:text-forest font-medium">Home</Link>
           <Link to="/sobre" className="text-gray-700 hover:text-forest font-medium">Sobre</Link>
           <Link to="/produtos" className="text-gray-700 hover:text-forest font-medium">Produtos</Link>

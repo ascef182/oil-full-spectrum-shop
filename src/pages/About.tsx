@@ -42,7 +42,7 @@ const About = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-gold p-4 rounded-lg shadow-lg">
-                <p className="font-playfair text-forest font-bold text-xl">Desde 2018</p>
+                <p className="font-playfair text-forest font-bold text-xl">Desde 2020</p>
               </div>
             </div>
           </div>

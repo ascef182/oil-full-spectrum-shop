@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '5511999999999'; // Replace with your WhatsApp number
+  const phoneNumber = '5511934154811'; // Novo número de WhatsApp
   const message = 'Olá! Tenho interesse nos produtos Oil Full Spectrum.';
   
   const handleWhatsAppClick = () => {

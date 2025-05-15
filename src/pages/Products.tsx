@@ -83,19 +83,19 @@ export const products = [
   {
     id: 7,
     name: "Gummies (Balas Fitoterápicas)",
-    description: "Gomas 100% naturais e veganas para uma experiência agradável. Peso por unidade: 30mg.",
+    description: "Gomas 100% naturais e veganas para uma experiência agradável. Peso por unidade: 30g.",
     longDescription: "Deliciosas gomas fitoterápicas veganas com compostos bioativos naturais. Perfeitas para o controle de ansiedade e promoção do relaxamento.",
     price: "R$ 262,50",
     image: "https://images.unsplash.com/photo-1501854140801-50d01698950b",
     category: "gummies",
     uses: ["ansiedade", "relaxamento"],
-    concentration: "30mg (por unidade)",
+    concentration: "30g (por unidade)",
     volume: null
   }
 ];
 
 const useTypes = ["ansiedade", "dor", "insonia", "sono", "estresse", "relaxamento", "inflamação"];
-const concentrations = ["600mg", "1000mg", "1500mg", "300mg"];
+const concentrations = ["600mg", "1500mg"];
 const categories = [
   { value: "all", label: "Todos" },
   { value: "oil", label: "Óleos" },

@@ -25,28 +25,18 @@ const Contact = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    
-    // Simulate form submission success
+    // Aqui simularia envio para ascefpam@gmail.com
     toast({
       title: "Mensagem enviada!",
       description: "Agradecemos seu contato, retornaremos em breve.",
       duration: 5000,
     });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
   };
 
   const handleWhatsAppClick = () => {
     const message = "Olá! Estou entrando em contato através do site.";
-    window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/5511934154811?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
@@ -103,7 +93,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(11) 99999-9999"
+                      placeholder="(11) 93415-4811"
                     />
                   </div>
                   
@@ -144,22 +134,14 @@ const Contact = () => {
               
               <div className="bg-sage p-6 rounded-lg">
                 <div className="space-y-6">
-                  <div className="flex items-start">
-                    <Mail className="h-6 w-6 text-forest mr-3 mt-1" />
-                    <div>
-                      <h3 className="font-bold text-forest">Email</h3>
-                      <a href="mailto:contato@oilfullspectrum.com.br" className="text-gray-700 hover:text-forest transition-colors">
-                        contato@oilfullspectrum.com.br
-                      </a>
-                    </div>
-                  </div>
+                  
                   
                   <div className="flex items-start">
                     <Phone className="h-6 w-6 text-forest mr-3 mt-1" />
                     <div>
                       <h3 className="font-bold text-forest">Telefone</h3>
-                      <a href="tel:+551199999999" className="text-gray-700 hover:text-forest transition-colors">
-                        (11) 99999-9999
+                      <a href="tel:5511934154811" className="text-gray-700 hover:text-forest transition-colors">
+                        (11) 93415-4811
                       </a>
                     </div>
                   </div>
@@ -169,9 +151,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold text-forest">Endereço</h3>
                       <p className="text-gray-700">
-                        Rua Exemplo, 123<br />
-                        Bairro, São Paulo - SP<br />
-                        CEP: 01234-567
+                        Avenida 9 de julho, 1981<br />
+                        Bela Vista, São Paulo - SP<br />
+                        CEP: 01313-001
                       </p>
                     </div>
                   </div>

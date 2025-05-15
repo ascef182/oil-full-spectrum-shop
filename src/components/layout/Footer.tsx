@@ -42,11 +42,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Phone size={16} />
-                <span className="text-sm opacity-80">(11) 99999-9999</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={16} />
-                <span className="text-sm opacity-80">contato@oilfullspectrum.com.br</span>
+                <span className="text-sm opacity-80">(11) 93415-4811</span>
               </div>
             </div>
           </div>

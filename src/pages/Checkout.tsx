@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
-const WHATSAPP_NUMBER = '5535999816133';
+const WHATSAPP_NUMBER = '5511934154811';
 
 const Checkout = () => {
   const { cart, getTotalPrice, clearCart } = useCart();
