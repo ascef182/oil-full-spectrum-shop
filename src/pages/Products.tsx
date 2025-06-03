@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import RootLayout from '../components/layout/RootLayout';
 import { Button } from "@/components/ui/button";
@@ -83,13 +84,13 @@ export const products = [
   {
     id: 7,
     name: "Gummies (Balas Fitoterápicas)",
-    description: "Gomas 100% naturais e veganas para uma experiência agradável. Peso por unidade: 30g.",
+    description: "Gomas 100% naturais e veganas para uma experiência agradável. Peso por unidade: 30mg.",
     longDescription: "Deliciosas gomas fitoterápicas veganas com compostos bioativos naturais. Perfeitas para o controle de ansiedade e promoção do relaxamento.",
     price: "R$ 262,50",
     image: "https://images.unsplash.com/photo-1501854140801-50d01698950b",
     category: "gummies",
     uses: ["ansiedade", "relaxamento"],
-    concentration: "30g (por unidade)",
+    concentration: "30mg (por unidade)",
     volume: null
   }
 ];
